@@ -1,0 +1,323 @@
+/* Variables  */
+:root {
+  --black: #010201;
+  --pink: #db7a9b;
+}
+
+/* Reset part of default styling */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  background-color: var(--black);
+}
+
+/* Create book popup */
+.popupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--pink);
+  padding-bottom: 10px;
+}
+
+.Title {
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 25px;
+}
+
+.popup,
+.popupEdit {
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms;
+  transition-timing-function: ease-out;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 15px;
+  z-index: 10;
+  width: min(500px, 80%);
+}
+
+.popup.active,
+.popupEdit.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.exit {
+  font-family: "Rubik Mono One", sans-serif;
+  background: none;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  transition-duration: 200ms;
+}
+
+.exit:hover {
+  color: var(--pink);
+  transition-duration: 200ms;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 9;
+}
+
+/* Top menu */
+
+.topMenu {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  padding-top: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.topMenu > * {
+  padding-left: 5%;
+  padding-right: 5%;
+  border: 1px solid white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: none;
+  border-top: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.topMenu > *:first-child {
+  border-left: none;
+}
+
+.topMenu > *:last-child {
+  border-right: none;
+}
+
+.topMenu > div:hover {
+  background-color: white;
+  color: var(--black);
+  transition-duration: 300ms;
+}
+
+/* Main content section  */
+
+.content {
+  color: white;
+  padding: 20px;
+}
+
+.yourBooks {
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: 400px 400px;
+  grid-auto-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.newBook {
+  font-size: 50px;
+  background: none;
+  border: none;
+  transition-duration: 300ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid white;
+}
+
+.newBook:hover {
+  cursor: pointer;
+  /* background-color:white; */
+  color: var(--pink);
+  font-size: 200px;
+  transition-duration: 500ms;
+  border: 20px solid var(--pink);
+}
+
+/* Container for book */
+
+.bookContainer {
+  background-color: var(--pink);
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.bookData {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 15px;
+}
+
+.bookData > p {
+  font-family: "Rubik Mono One", sans-serif;
+  text-align: center;
+  margin: 0px 10px;
+  word-break: break-all;
+}
+
+.bookData > p:nth-child(1) {
+  font-size: 35px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--black);
+}
+
+/* Form for adding book */
+
+#addBookForm,
+#editBookForm {
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#addBookForm > *,
+#editBookForm > * {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#addBookForm > * > label,
+#editBookForm > * > label {
+  width: 45%;
+}
+
+.delete,
+.editThisBook {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  align-self: end;
+  justify-self: flex-start;
+  width: 40px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition-duration: 400ms;
+}
+
+.delete:hover,
+.editThisBook:hover {
+  transform: rotate(360deg);
+  transition-duration: 400ms;
+}
+
+.popupButtons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.createBook,
+.cancel,
+.update {
+  font-family: "Rubik Mono One", sans-serif;
+  padding: 4px 5px;
+  background-color: white;
+  color: var(--pink);
+  border-radius: 4px;
+  border: 2px solid #010201;
+  cursor: pointer;
+  transition-duration: 200ms;
+}
+
+.createBook:hover,
+.cancel:hover,
+.update {
+  color: #db7a9b;
+  background-color: #010201;
+  border: 2px solid;
+  transition-duration: 200ms;
+}
+
+/* Middle stat section */
+
+.middle-section {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.middle-section-left {
+  flex: 2;
+}
+
+.middle-section-right {
+  padding: 50px;
+  gap: 90px;
+  display: flex;
+  flex: 1;
+  color: white;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.middle-section-right > div {
+  position: relative;
+  display: flex;
+}
+
+.middle-section-right > div > p:first-child {
+  position: relative;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 50px;
+  text-align: right;
+  letter-spacing: -4px;
+  line-height: 39px;
+  z-index: 2;
+}
+
+[class^="number"] {
+  position: absolute;
+  font-size: 110px;
+  top: -90px;
+  right: 0px;
+  color: var(--pink);
+  font-family: "Rubik Mono One", sans-serif;
+}

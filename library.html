@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="library.css" />
+    <script src="library.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="popup" class="popup">
+      <div class="popupHeader">
+        <div class="Title">Enter Your Book</div>
+        <button data-popup-close class="exit">&times;</button>
+      </div>
+      <div class="popupContent">
+        <form id="addBookForm">
+          <div>
+            <label for="title">Title</label>
+            <input
+              id="title"
+              type="text"
+              title="Please enter title of the book"
+            />
+          </div>
+          <div>
+            <label for="author">Author</label>
+            <input
+              id="author"
+              type="text"
+              title="Please enter author of the book"
+            />
+          </div>
+          <div>
+            <label for="pages">No. of pages</label>
+            <input id="pages" type="number" title="Please length of the book" />
+          </div>
+          <div>
+            <label for="pagesRead">Progress (pages read)</label>
+            <input
+              id="pagesRead"
+              type="number"
+              title="Please enter number of pager you have already read.This value must be smaller than value provided"
+            />
+          </div>
+        </form>
+        <div class="popupButtons">
+          <button class="createBook">Create Book</button>
+          <button class="cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popupEdit" class="popup">
+      <div class="popupHeader">
+        <div class="Title">Edit book</div>
+        <button data-popup-close class="exit">&times;</button>
+      </div>
+      <div class="popupContent">
+        <form id="editBookForm">
+          <div>
+            <label for="titleEdit">Title</label>
+            <input
+              id="titleEdit"
+              type="text"
+              title="Please enter title of the book"
+            />
+          </div>
+          <div>
+            <label for="authorEdit">Author</label>
+            <input
+              id="authorEdit"
+              type="text"
+              title="Please enter author of the book"
+            />
+          </div>
+          <div>
+            <label for="pagesEdit">No. of pages</label>
+            <input id="pagesEdit" type="number" title="Please length of the book" />
+          </div>
+          <div>
+            <label for="pagesReadEdit">Progress (pages read)</label>
+            <input
+              id="pagesReadEdit"
+              type="number"
+              title="Please enter number of pager you have already read.This value must be smaller than value provided"
+            />
+          </div>
+        </form>
+        <div class="popupButtons">
+          <button class="editBook">Edit Book</button>
+          <button data-popup-close class="cancelEdit">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div class="backgroundDiv">
+      <div class="topMenu">
+        <div class="home">HOME</div>
+        <div class="yourLibrary">YOUR LIBRARY</div>
+        <div class="blog">BLOG</div>
+        <div class="about">ABOUT</div>
+      </div>
+
+      <div class="middle-section">
+        <div class="middle-section-left">
+          <img src="pic1.png" alt="" />
+        </div>
+
+        <div class="middle-section-right">
+          <div class="booksDiv">
+            <p class="bookCount">books in library</p>
+            <p class="numberBooks">0</p>
+          </div>
+
+          <div class="pagesDiv">
+            <p class="pagesRead">pages read</p>
+            <p class="numberPagesRead">0</p>
+          </div>
+
+          <div class="toGoDiv">
+            <p class="pagesToGo">to go</p>
+            <p class="numberPagesToGo">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h3 class="yourBooks">Your Books</h3>
+        <div class="mainGrid">
+          <button class="newBook" data-popup-target="#popup">+</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
